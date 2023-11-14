@@ -15,6 +15,7 @@
       <form id="add-city-form" method="POST" class="hide fade-out">
         <h2 id="exit-button">&times;</h2>
         <h1 id="form-title">Add a City:</h1>
+        <input type="hidden" name="_id" value="-1" />
         <p>
           <label for="cityName">City Name: </label>
           <input type="text" id="cityName" required />
@@ -45,6 +46,7 @@
         <p id="result"></p>
       </form>
     </div>
+    <div class="hide" id="delete-confirmation"></div>
     <script src="script.js"></script>
   </body>
 </html>

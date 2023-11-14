@@ -20,6 +20,7 @@ app.get("/", (req, res) => {
 
 let cities = [
   {
+    _id: 1,
     name: "New York City",
     country: "United States",
     population: 8804190,
@@ -28,6 +29,7 @@ let cities = [
     funFact: "More than 200 languages are spoken in NYC.",
   },
   {
+    _id: 2,
     name: "London",
     country: "United Kingdom",
     population: 9648110,
@@ -36,6 +38,7 @@ let cities = [
     funFact: "London has the world's oldest underground railway.",
   },
   {
+    _id: 3,
     name: "Paris",
     country: "France",
     population: 11208000,
@@ -44,6 +47,7 @@ let cities = [
     funFact: "Paris is the capital of France.",
   },
   {
+    _id: 4,
     name: "Rome",
     country: "Italy",
     population: 4316000,
@@ -53,6 +57,7 @@ let cities = [
       "Ancient Romans believed that no matter what happened to the world, Rome would go on forever.",
   },
   {
+    _id: 5,
     name: "Sydney",
     country: "Australia",
     population: 5121000,
@@ -61,6 +66,7 @@ let cities = [
     funFact: "The Sydney Tower Eye can sway up to a meter in strong winds.",
   },
   {
+    _id: 6,
     name: "Tokyo",
     country: "Japan",
     population: 13960000,
@@ -80,6 +86,7 @@ app.post("/api/cities", upload.single("img"), (req, res) => {
   }
 
   const newCity = {
+    _id: cities.length + 1,
     name: req.body.name,
     country: req.body.country,
     population: req.body.population,
@@ -92,8 +99,40 @@ app.post("/api/cities", upload.single("img"), (req, res) => {
   res.send(cities);
 });
 
+app.put("/api/cities/:id", upload.single("img"), (req, res) => {
+  const id = parseInt(req.params.id);
+  const city = cities.find((cityCheck) => cityCheck._id === id);
+
+  const result = validateCity(req.body);
+  if (result.error) {
+    res.status(400).send(result.error.details[0].message);
+    return;
+  }
+  // update city details
+  city.name = req.body.name;
+  city.country = req.body.country;
+  city.population = req.body.population;
+  city.prominentLanguage = req.body.prominentLanguage;
+  city.landmarks = req.body.landmarks.split(",");
+  city.funFact = req.body.funFact;
+  res.send(city);
+});
+
+app.delete("/api/cities/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const city = cities.find((cityCheck) => cityCheck._id === id);
+
+  if (!city) {
+    res.status(404).send("The city not found");
+  }
+  const index = cities.indexOf(city);
+  cities.splice(index, 1);
+  res.send(city);
+});
+
 const validateCity = (city) => {
   const citySchema = joi.object({
+    _id: joi.allow(""),
     name: joi.string().min(4).required(),
     country: joi.string().min(2).required(),
     population: joi.number().min(1).required(),
