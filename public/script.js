@@ -210,15 +210,25 @@ const deleteConfirmation = (city) => {
   no.innerHTML = "No";
   panel.append(no);
 
+  panel.classList.remove("fade-out");
   panel.classList.remove("hide");
+  panel.classList.add("fade-in");
 
   yes.onclick = () => {
     deleteCity(city);
-    panel.classList.add("hide");
+    panel.classList.remove("fade-in");
+    panel.classList.add("fade-out");
+    setTimeout(() => {
+      panel.classList.add("hide");
+    }, 500);
   };
 
   no.onclick = () => {
-    panel.classList.add("hide");
+    panel.classList.remove("fade-in");
+    panel.classList.add("fade-out");
+    setTimeout(() => {
+      panel.classList.add("hide");
+    }, 500);
   };
 };
 
