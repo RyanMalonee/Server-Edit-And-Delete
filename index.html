@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Assignment 14 - Server Get and Post</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title">Cities Around the World</h1>
+    <div class="flex-container">
+      <div class="column flex-container" id="cities"></div>
+      <div class="column" id="details"></div>
+    </div>
+    <button id="addCity">Add A City</button>
+    <div id="city-form">
+      <form id="add-city-form" method="POST" class="hide fade-out">
+        <h2 id="exit-button">&times;</h2>
+        <h1 id="form-title">Add a City:</h1>
+        <p>
+          <label for="cityName">City Name: </label>
+          <input type="text" id="cityName" required />
+        </p>
+        <p>
+          <label for="country">Country: </label>
+          <input type="text" id="country" required />
+        </p>
+        <p>
+          <label for="population">Population: </label>
+          <input type="number" id="population" required min="1" />
+        </p>
+        <p>
+          <label for="prominentLanguage">Prominent Language: </label>
+          <input type="text" id="prominentLanguage" required />
+        </p>
+        <p>
+          <label for="landmarks">Landmarks (separate list by commas): </label>
+          <input type="text" id="landmarks" required />
+        </p>
+        <p>
+          <label for="funFact">Fun Fact: </label>
+          <input type="text" id="funFact" required />
+        </p>
+        <p>
+          <button id="form-submit-button" type="submit">Submit!</button>
+        </p>
+        <p id="result"></p>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
