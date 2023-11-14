@@ -18,23 +18,23 @@
         <input type="hidden" name="_id" value="-1" />
         <p>
           <label for="cityName">City Name: </label>
-          <input type="text" id="cityName" required />
+          <input type="text" id="cityName" minlength="4" required />
         </p>
         <p>
           <label for="country">Country: </label>
-          <input type="text" id="country" required />
+          <input type="text" id="country" minlength="2" required />
         </p>
         <p>
           <label for="population">Population: </label>
-          <input type="number" id="population" required min="1" />
+          <input type="number" id="population" min="1" required min="1" />
         </p>
         <p>
           <label for="prominentLanguage">Prominent Language: </label>
-          <input type="text" id="prominentLanguage" required />
+          <input type="text" id="prominentLanguage" minlength="4" required />
         </p>
         <p>
           <label for="landmarks">Landmarks (separate list by commas): </label>
-          <input type="text" id="landmarks" required />
+          <input type="text" id="landmarks" minlength="4" required />
         </p>
         <p>
           <label for="funFact">Fun Fact: </label>
