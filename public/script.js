@@ -102,20 +102,8 @@ const addCity = async (e) => {
   const result = document.getElementById("result");
   const formData = new FormData(form);
 
-  // Adding all of the data to the formData (Would not work unless I did
-  // this because it only grabbed the ID for some reason)
-  formData.append("name", document.getElementById("cityName").value);
-  formData.append("country", document.getElementById("country").value);
-  formData.append("population", document.getElementById("population").value);
-  formData.append(
-    "prominentLanguage",
-    document.getElementById("prominentLanguage").value
-  );
-  formData.append("landmarks", document.getElementById("landmarks").value);
-  formData.append("funFact", document.getElementById("funFact").value);
-
   if (form._id.value == -1) {
-    console.log(...formData);
+    formData.delete("_id");
     response = await fetch("/api/cities", {
       method: "POST",
       body: formData,
