@@ -18,7 +18,14 @@
         <input type="hidden" name="_id" value="-1" />
         <p>
           <label for="cityName">City Name: </label>
-          <input type="text" id="cityName" name="name" minlength="4" required />
+          <input
+            type="text"
+            id="cityName"
+            name="name"
+            minlength="4"
+            placeholder="New York City"
+            required
+          />
         </p>
         <p>
           <label for="country">Country: </label>
@@ -27,6 +34,7 @@
             id="country"
             name="country"
             minlength="2"
+            placeholder="United States"
             required
           />
         </p>
@@ -37,8 +45,8 @@
             id="population"
             name="population"
             min="1"
+            placeholder="12345"
             required
-            min="1"
           />
         </p>
         <p>
@@ -48,6 +56,7 @@
             id="prominentLanguage"
             name="prominentLanguage"
             minlength="4"
+            placeholder="English"
             required
           />
         </p>
@@ -58,12 +67,19 @@
             id="landmarks"
             name="landmarks"
             minlength="4"
+            placeholder="Statue of Liberty,Central Park"
             required
           />
         </p>
         <p>
           <label for="funFact">Fun Fact: </label>
-          <input type="text" id="funFact" name="funFact" required />
+          <input
+            type="text"
+            id="funFact"
+            name="funFact"
+            placeholder="Fun Fact"
+            required
+          />
         </p>
         <p>
           <button id="form-submit-button" type="submit">Submit!</button>

@@ -241,29 +241,33 @@ const deleteCity = async (city) => {
 
 // shows and hides the ADD form
 const showForm = () => {
-  document.getElementById("add-city-form")._id.value = -1;
+  const form = document.getElementById("add-city-form");
+  form._id.value = -1;
   const formTitle = document.getElementById("form-title");
   formTitle.innerHTML = "Add A City";
-  document.getElementById("add-city-form").classList.remove("fade-out");
-  document.getElementById("add-city-form").classList.remove("hide");
-  document.getElementById("add-city-form").classList.add("fade-in");
+  form.classList.remove("fade-out");
+  form.classList.remove("hide");
+  form.classList.add("fade-in");
 };
 
 const hideForm = () => {
-  document.getElementById("add-city-form").classList.remove("fade-in");
-  document.getElementById("add-city-form").classList.add("fade-out");
+  const form = document.getElementById("add-city-form");
+  form.classList.remove("fade-in");
+  form.classList.add("fade-out");
   setTimeout(() => {
-    document.getElementById("add-city-form").classList.add("hide");
+    form.classList.add("hide");
   }, 500);
+  form.reset();
 };
 
 // Changes title of add form to edit
 const showEditForm = () => {
   const formTitle = document.getElementById("form-title");
   formTitle.innerHTML = "Edit A City";
-  document.getElementById("add-city-form").classList.remove("fade-out");
-  document.getElementById("add-city-form").classList.remove("hide");
-  document.getElementById("add-city-form").classList.add("fade-in");
+  const form = document.getElementById("add-city-form");
+  form.classList.remove("fade-out");
+  form.classList.remove("hide");
+  form.classList.add("fade-in");
 };
 
 window.onload = () => {
