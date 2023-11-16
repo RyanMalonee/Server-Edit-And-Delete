@@ -142,6 +142,7 @@ const addCity = async (e) => {
     setTimeout(() => {
       result.innerHTML = "";
     }, 3000);
+    document.getElementById("add-city-form").reset();
   }
 
   if (form._id.value != -1) {
@@ -153,8 +154,6 @@ const addCity = async (e) => {
       result.innerHTML = "";
     }, 3000);
   }
-
-  document.getElementById("add-city-form").reset();
 };
 
 const populateForm = (city) => {
